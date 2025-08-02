@@ -1,0 +1,223 @@
+<div class="title">
+  <h1>Registro de inscripción</h1>
+  <div class="logo">
+    <img src="/Logo.png" alt="">
+  </div>
+</div>
+
+<form class="form-base" [formGroup]="form">
+  <div class="mb-3">
+    <label for="programa" class="form-label">Programa académico *</label>
+    <select id="programa" class="form-select" formControlName="programa">
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="calidad">Diplomado en calidad</option>
+      <option value="direccion_estrategica">Diplomado en dirección estratégica</option>
+    </select>
+  </div>
+
+  <div class="row g-3">
+    <h2>Datos generales</h2>
+    <div class="col">
+      <label for="nombre" class="form-label">Nombre(s) *</label>
+      <input type="text" id="nombre" class="form-control" formControlName="nombre">
+      @if (form.get('nombre')?.touched && form.get('nombre')?.invalid) {
+        <div class="error">El nombre es obligatorio.</div>
+      }
+    </div>
+    <div class="col">
+      <label for="primerApellido" class="form-label">Primer apellido *</label>
+      <input type="text" id="primerApellido" class="form-control" formControlName="primerApellido">
+      @if (form.get('primerApellido')?.touched && form.get('primerApellido')?.invalid) {
+        <div class="error">El primer apellido es obligatorio.</div>
+      }
+    </div>
+    <div class="col">
+      <label for="segundoApellido" class="form-label">Segundo Apellido *</label>
+      <input type="text" id="segundoApellido" class="form-control" formControlName="segundoApellido">
+      @if (form.get('segundoApellido')?.touched && form.get('segundoApellido')?.invalid) {
+        <div class="error">El segundo apellido es obligatorio.</div>
+      }
+    </div>
+    <div class="col">
+      <label for="curp" class="form-label">CURP</label>
+      <input type="text" id="curp" class="form-control" formControlName="curp">
+      @if (form.get('curp')?.touched && form.get('curp')?.invalid) {
+        <div class="error">El CURP es inválido.</div>
+      }
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <p>Fecha de nacimiento</p>
+    <div class="col-sm">
+      <label for="diaNacimiento" class="form-label">Día *</label>
+      <input type="text" id="diaNacimiento" class="form-control" formControlName="diaNacimiento">
+      @if (form.get('diaNacimiento')?.touched && form.get('diaNacimiento')?.invalid) {
+        <div class="error">El día es obligatorio.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="mesNacimiento" class="form-label">Mes *</label>
+      <input type="text" id="mesNacimiento" class="form-control" formControlName="mesNacimiento">
+      @if (form.get('mesNacimiento')?.touched && form.get('mesNacimiento')?.invalid) {
+        <div class="error">El mes es obligatorio.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="anioNacimiento" class="form-label">Año *</label>
+      <input type="text" id="anioNacimiento" class="form-control" formControlName="anioNacimiento">
+      @if (form.get('anioNacimiento')?.touched && form.get('anioNacimiento')?.invalid) {
+        <div class="error">El año es obligatorio.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="ciudadNacimiento" class="form-label">Ciudad de nacimiento</label>
+      <input type="text" id="ciudadNacimiento" class="form-control" formControlName="ciudadNacimiento">
+      @if (form.get('ciudadNacimiento')?.touched && form.get('ciudadNacimiento')?.invalid) {
+        <div class="error">La ciudad es inválida.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="paisNacimiento" class="form-label">País de nacimiento</label>
+      <input type="text" id="paisNacimiento" class="form-control" formControlName="paisNacimiento">
+      @if (form.get('paisNacimiento')?.touched && form.get('paisNacimiento')?.invalid) {
+        <div class="error">El país es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" id="telefono" class="form-control" formControlName="telefono">
+      @if (form.get('telefono')?.touched && form.get('telefono')?.invalid) {
+        <div class="error">El teléfono es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-3">
+      <label for="correo" class="form-label">Correo</label>
+      <input type="text" id="correo" class="form-control" formControlName="correo">
+      @if (form.get('correo')?.touched && form.get('correo')?.invalid) {
+        <div class="error">El correo es inválido.</div>
+      }
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <h2>Domicilio</h2>
+    <div class="col-sm-3">
+      <label for="calle" class="form-label">Calle</label>
+      <input type="text" id="calle" class="form-control" formControlName="calle">
+      @if (form.get('calle')?.touched && form.get('calle')?.invalid) {
+        <div class="error">La calle es inválida.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="numero" class="form-label">Número</label>
+      <input type="text" id="numero" class="form-control" formControlName="numero">
+      @if (form.get('numero')?.touched && form.get('numero')?.invalid) {
+        <div class="error">El número es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="cp" class="form-label">Código postal</label>
+      <input type="text" id="cp" class="form-control" formControlName="cp">
+      @if (form.get('cp')?.touched && form.get('cp')?.invalid) {
+        <div class="error">El código postal es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="colonia" class="form-label">Colonia</label>
+      <input type="text" id="colonia" class="form-control" formControlName="colonia">
+      @if (form.get('colonia')?.touched && form.get('colonia')?.invalid) {
+        <div class="error">La colonia es inválida.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="municipio" class="form-label">Municipio</label>
+      <input type="text" id="municipio" class="form-control" formControlName="municipio">
+      @if (form.get('municipio')?.touched && form.get('municipio')?.invalid) {
+        <div class="error">El municipio es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-2">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" id="estado" class="form-control" formControlName="estado">
+      @if (form.get('estado')?.touched && form.get('estado')?.invalid) {
+        <div class="error">El estado es inválido.</div>
+      }
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <h2>Contacto</h2>
+    <div class="col-sm">
+      <label for="telefonoMovil" class="form-label">Teléfono móvil *</label>
+      <input type="text" id="telefonoMovil" class="form-control" formControlName="telefonoMovil">
+      @if (form.get('telefonoMovil')?.touched && form.get('telefonoMovil')?.invalid) {
+        <div class="error">El teléfono móvil es obligatorio.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="whatsapp" class="form-label">Número Whatsapp</label>
+      <input type="text" id="whatsapp" class="form-control" formControlName="whatsapp">
+      @if (form.get('whatsapp')?.touched && form.get('whatsapp')?.invalid) {
+        <div class="error">El número de WhatsApp es inválido.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="correoContacto" class="form-label">Correo *</label>
+      <input type="text" id="correoContacto" class="form-control" formControlName="correoContacto">
+      @if (form.get('correoContacto')?.touched && form.get('correoContacto')?.invalid) {
+        <div class="error">El correo de contacto es obligatorio.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="nombreContacto" class="form-label">Nombre de contacto *</label>
+      <input type="text" id="nombreContacto" class="form-control" formControlName="nombreContacto">
+      @if (form.get('nombreContacto')?.touched && form.get('nombreContacto')?.invalid) {
+        <div class="error">El nombre del contacto es obligatorio.</div>
+      }
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <h2>Datos académicos</h2>
+    <div class="col-sm">
+      <label for="gradoEstudios" class="form-label">Último grado de estudios</label>
+      <input type="text" id="gradoEstudios" class="form-control" formControlName="gradoEstudios">
+      @if (form.get('gradoEstudios')?.touched && form.get('gradoEstudios')?.invalid) {
+        <div class="error">Este campo es inválido.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="planEstudios" class="form-label">Nombre del plan de estudios</label>
+      <input type="text" id="planEstudios" class="form-control" formControlName="planEstudios">
+      @if (form.get('planEstudios')?.touched && form.get('planEstudios')?.invalid) {
+        <div class="error">Este campo es inválido.</div>
+      }
+    </div>
+    <div class="col-sm">
+      <label for="institucion" class="form-label">Institución de procedencia</label>
+      <input type="text" id="institucion" class="form-control" formControlName="institucion">
+      @if (form.get('institucion')?.touched && form.get('institucion')?.invalid) {
+        <div class="error">Este campo es inválido.</div>
+      }
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-sm">
+      <label for="asesor">Nombre de tu asesor en el proceso de inscripción</label>
+      <input type="text" id="asesor" class="form-control" formControlName="asesor">
+      @if (form.get('asesor')?.touched && form.get('asesor')?.invalid) {
+        <div class="error">Este campo es inválido.</div>
+      }
+    </div>
+    <div class="col-sm-3">
+      <input type="text" class="form-control no-border" [disabled]="true">
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="btn btn-secondary" (click)="cancelar()">CANCELAR</button>
+    <button type="button" class="btn btn-primary" (click)="guardar()">GUARDAR</button>
+  </div>
+</form>

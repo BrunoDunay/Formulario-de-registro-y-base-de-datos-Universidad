@@ -1,0 +1,33 @@
+table{
+  width: 95%;
+  margin: 20px auto;
+  box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.1);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-edit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+

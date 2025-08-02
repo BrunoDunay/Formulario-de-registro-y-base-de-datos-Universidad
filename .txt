@@ -1,0 +1,34 @@
+Angular con proxy:
+ng serve --proxy-config proxy.conf.json
+
+Autollenado consola navegador:
+const datos3 = {
+  programa: "tic",
+  nombre: "Andrea Paola",
+  primerApellido: "Delgado",
+  segundoApellido: "Mejía",
+  curp: "DEMA980403MPLRND09",
+  diaNacimiento: "3",
+  mesNacimiento: "4",
+  anioNacimiento: "1998",
+  ciudadNacimiento: "Puebla",
+  paisNacimiento: "México",
+  telefono: "2224567890",
+  correo: "andrea.delgado@example.com",
+  calle: "Av. Reforma Sur",
+  numero: "1203",
+  cp: "72000",
+  colonia: "El Carmen",
+  municipio: "Puebla",
+  estado: "Puebla",
+  telefonoMovil: "2229988776",
+  whatsapp: "2229988776",
+  correoContacto: "contacto.andrea@example.com",
+  nombreContacto: "Jorge Mejía",
+  gradoEstudios: "Ingeniería",
+  planEstudios: "Tecnologías de la Información",
+  institucion: "Benemérita Universidad Autónoma de Puebla",
+  asesor: "Raúl Castillo"
+};
+
+ng.getComponent(document.querySelector('app-form')).form.setValue(datos3);
