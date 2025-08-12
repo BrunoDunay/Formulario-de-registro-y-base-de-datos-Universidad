@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InscripcionesService } from '../../services/inscripciones.service';
+import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-fist-view-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './fist-view-table.component.html',
   styleUrls: ['./fist-view-table.component.css']
 })
 export class FistViewTableComponent implements OnInit {
   inscripciones: any[] = [];
   inscripcionesFiltradas: any[] = [];
+  terminoBusqueda: string = '';   // ✅ Nuevo campo para la búsqueda
 
   constructor(private inscripcionesService: InscripcionesService) {}
 
@@ -30,7 +32,7 @@ export class FistViewTableComponent implements OnInit {
 
         console.log('✅ Inscripciones cargadas:', data);
 
-        // Por defecto filtrar solo los registros de hoy
+        // Por defecto filtrar solo los registros de los últimos 3 días
         this.filtrarUltimos3Dias();
       },
       error: (error) => {
@@ -40,13 +42,28 @@ export class FistViewTableComponent implements OnInit {
   }
 
   filtrarUltimos3Dias(): void {
-  const hoy = new Date();
-  const hace3dias = new Date();
-  hace3dias.setDate(hoy.getDate() - 3);
+    const hoy = new Date();
+    const hace3dias = new Date();
+    hace3dias.setDate(hoy.getDate() - 3);
+
+    this.inscripcionesFiltradas = this.inscripciones.filter(item => {
+      const fechaRegistro = new Date(item.createdAt);
+      return fechaRegistro >= hace3dias && fechaRegistro <= hoy;
+    });
+  }
+
+buscarRegistros(): void {
+  const termino = this.terminoBusqueda?.toLowerCase().trim();
+
+  if (!termino) {
+    // ✅ Si la barra está vacía, aplicar el filtro original (últimos 3 días)
+    this.filtrarUltimos3Dias();
+    return;
+  }
 
   this.inscripcionesFiltradas = this.inscripciones.filter(item => {
-    const fechaRegistro = new Date(item.createdAt);
-    return fechaRegistro >= hace3dias && fechaRegistro <= hoy;
+    const nombreCompleto = `${item.nombre} ${item.primerApellido} ${item.segundoApellido}`.toLowerCase();
+    return nombreCompleto.includes(termino);
   });
 }
 
@@ -164,4 +181,12 @@ export class FistViewTableComponent implements OnInit {
       }
     });
   }
+
+  esRegistroDeHoy(fecha: string): boolean {
+  const fechaRegistro = new Date(fecha).toDateString();
+  const hoy = new Date().toDateString();
+  return fechaRegistro === hoy;
+}
+
+
 }

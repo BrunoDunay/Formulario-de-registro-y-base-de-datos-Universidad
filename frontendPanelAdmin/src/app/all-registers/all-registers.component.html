@@ -1,7 +1,18 @@
 <div class="container-fluid mt-3">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="text-center">Lista completa de registros</h4>
-    <button class="btn btn-outline-primary" (click)="filtrarPorFecha()">Filtrar por fecha</button>
+    <div class="d-flex gap-2">
+      <input type="text" 
+             class="form-control" 
+             placeholder="Buscar por nombre..." 
+             [(ngModel)]="terminoBusqueda"
+             (input)="buscarRegistros()"
+             style="width: 250px;">
+      <button class="btn btn-outline-primary" (click)="filtrarPorFecha()"><i class="fa-solid fa-calendar-days"></i></button>
+      <button class="btn btn-success ms-2" (click)="exportarExcelTodo()">Descargar <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><path fill="#185C37" d="M40 6H16v36h24c2.2 0 4-1.8 4-4V10c0-2.2-1.8-4-4-4z"/><path fill="#21A366" d="M8 12h24v24H8z"/><path fill="#107C41" d="M16 12h16v24H16z"/>
+      <path fill="#FFF" d="M21 31h-2l3-7-3-7h2l2 5 2-5h2l-3 7 3 7h-2l-2-5-2 5z"/></svg>
+      </button>
+    </div>
   </div>
 
   <div class="table-container">
@@ -40,37 +51,37 @@
       </thead>
       <tbody>
         @for (inscripcion of inscripcionesFiltradas; track inscripcion._id) {
-          <tr>
-            <td>{{ $index + 1 }}</td>
-            <td>{{ inscripcion.createdAt | date:'dd/MM/yyyy' }}</td>
-            <td>{{ inscripcion.nombre }}</td>
-            <td>{{ inscripcion.primerApellido }}</td>
-            <td>{{ inscripcion.segundoApellido }}</td>
-            <td>{{ inscripcion.correo }}</td>
-            <td>{{ formatearTelefono(inscripcion.telefono) }}</td>
-            <td>{{ inscripcion.programa }}</td>
-            <td>{{ inscripcion.curp }}</td>
-            <td>{{ inscripcion.diaNacimiento }}</td>
-            <td>{{ inscripcion.mesNacimiento }}</td>
-            <td>{{ inscripcion.anioNacimiento }}</td>
-            <td>{{ inscripcion.ciudadNacimiento }}</td>
-            <td>{{ inscripcion.paisNacimiento }}</td>
-            <td>{{ inscripcion.calle }}</td>
-            <td>{{ inscripcion.numero }}</td>
-            <td>{{ inscripcion.cp }}</td>
-            <td>{{ inscripcion.colonia }}</td>
-            <td>{{ inscripcion.municipio }}</td>
-            <td>{{ inscripcion.estado }}</td>
-            <td>{{ inscripcion.telefonoMovil }}</td>
-            <td>{{ inscripcion.whatsapp }}</td>
-            <td>{{ inscripcion.correoContacto }}</td>
-            <td>{{ inscripcion.nombreContacto }}</td>
-            <td>{{ inscripcion.gradoEstudios }}</td>
-            <td>{{ inscripcion.planEstudios }}</td>
-            <td>{{ inscripcion.institucion }}</td>
-            <td>{{ inscripcion.asesor }}</td>
-          </tr>
-        }
+  <tr [ngClass]="{'registro-hoy': esHoy(inscripcion.createdAt)}">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ inscripcion.createdAt | date:'dd/MM/yyyy' }}</td>
+    <td>{{ inscripcion.nombre }}</td>
+    <td>{{ inscripcion.primerApellido }}</td>
+    <td>{{ inscripcion.segundoApellido }}</td>
+    <td>{{ inscripcion.correo }}</td>
+    <td>{{ formatearTelefono(inscripcion.telefono) }}</td>
+    <td>{{ inscripcion.programa }}</td>
+    <td>{{ inscripcion.curp }}</td>
+    <td>{{ inscripcion.diaNacimiento }}</td>
+    <td>{{ inscripcion.mesNacimiento }}</td>
+    <td>{{ inscripcion.anioNacimiento }}</td>
+    <td>{{ inscripcion.ciudadNacimiento }}</td>
+    <td>{{ inscripcion.paisNacimiento }}</td>
+    <td>{{ inscripcion.calle }}</td>
+    <td>{{ inscripcion.numero }}</td>
+    <td>{{ inscripcion.cp }}</td>
+    <td>{{ inscripcion.colonia }}</td>
+    <td>{{ inscripcion.municipio }}</td>
+    <td>{{ inscripcion.estado }}</td>
+    <td>{{ inscripcion.telefonoMovil }}</td>
+    <td>{{ inscripcion.whatsapp }}</td>
+    <td>{{ inscripcion.correoContacto }}</td>
+    <td>{{ inscripcion.nombreContacto }}</td>
+    <td>{{ inscripcion.gradoEstudios }}</td>
+    <td>{{ inscripcion.planEstudios }}</td>
+    <td>{{ inscripcion.institucion }}</td>
+    <td>{{ inscripcion.asesor }}</td>
+  </tr>
+}
       </tbody>
     </table>
   </div>

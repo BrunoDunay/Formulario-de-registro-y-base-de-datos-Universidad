@@ -1,11 +1,13 @@
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-body-tertiary" *ngIf="estaLogueado">
   <div class="container-fluid d-flex align-items-center">
-    <a class="navbar-brand logo me-3" routerLink="/">
+    <a class="navbar-brand logo me-3" routerLink="/panel">
       <img src="/Logo.png" alt="Logo" width="30" height="26" class="d-inline-block align-text-center">
     </a>
     <div class="buttons">
-      <button class="btn btn-primary me-2" routerLink="/">Inicio</button>
-      <button class="btn btn-success" routerLink="/all-registers">Ver registros</button>
+       <button class="btn btn-primary me-2" routerLink="/panel">Inicio</button>
+        <button class="btn btn-success me-2" routerLink="/all-registers">Ver registros</button>
+        <button class="btn btn-danger" (click)="cerrarSesion()">Cerrar sesión</button>
     </div>
+
   </div>
 </nav>

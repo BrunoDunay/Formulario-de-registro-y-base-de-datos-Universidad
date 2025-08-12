@@ -1,0 +1,39 @@
+<div class="principal-content">
+<div class="card">
+  <div class="content">
+    <div class="back">
+      <div class="back-content">
+          <img src="/Logosolo.png" alt="">
+        <strong></strong>
+      </div>
+    </div>
+
+    <div class="front">
+      <div class="img">
+        <div class="circle"></div>
+        <div class="circle" id="right"></div>
+        <div class="circle" id="bottom"></div>
+      </div>
+
+      <div class="front-content">
+        <div class="container text-center">
+          <h2>Iniciar sesión</h2>
+          <input
+            type="text"
+            placeholder="Usuario"
+            [(ngModel)]="usuario"
+            class="form-control mb-2"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            [(ngModel)]="contra"
+            class="form-control mb-2"
+          />
+          <button class="btn btn-primary" (click)="iniciarSesion()">Entrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

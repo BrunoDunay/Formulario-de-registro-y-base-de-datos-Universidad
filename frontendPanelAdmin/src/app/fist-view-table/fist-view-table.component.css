@@ -31,3 +31,10 @@ table{
   background-color: #0056b3;
 }
 
+.registro-hoy {
+  background-color: #d4f7d4 !important;
+  font-weight: 500;
+  border-left: 4px solid #4caf50;
+}
+
+

@@ -1,0 +1,31 @@
+<div class="programa-select" [class.disabled]="disabled()">
+  <button type="button" class="trigger" (click)="toggle()">
+    <span class="label">
+      {{ labelFor(value()) ? labelFor(value()) : 'Selecciona una opción…' }}
+    </span>
+    <span class="chev">▾</span>
+  </button>
+
+  @if (open()) {
+    <div class="panel" tabindex="0" (keydown.escape)="close()">
+      <div class="grid">
+        @for (g of groups; track g.label) {
+          <section class="group">
+            <header class="group-title">{{ g.label }}</header>
+            <ul class="options">
+              @for (opt of g.options; track opt.value) {
+                <li
+                  (click)="select(opt)"
+                  [class.active]="opt.value === value()"
+                  title="{{ opt.text }}"
+                >
+                  {{ opt.text }}
+                </li>
+              }
+            </ul>
+          </section>
+        }
+      </div>
+    </div>
+  }
+</div>

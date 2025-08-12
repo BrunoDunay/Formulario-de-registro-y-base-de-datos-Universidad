@@ -4,6 +4,16 @@ label{
     font-weight: 600;
 }
 
+select optgroup {
+  color: #ac8409;
+  font-weight: bold;
+
+}
+
+select optgroup option {
+  color: black;
+}
+
 h2, h3{
     font-size: 1.6rem;
     color: #ac8409;
@@ -92,4 +102,50 @@ select:focus {
     font-weight: lighter;
     margin-top: 5px;
 }
+
+@media (max-width: 406px) {
+
+    /*titulo*/
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  flex-direction: column-reverse;
+  height: auto;
+  gap: 20px;
+}
+
+  /* Apilar todos los campos en una sola columna */
+  .row > [class*="col-"],
+  .row > .col-sm {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Mantener los tres campos de fecha en una sola fila */
+  .fecha-nacimiento {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .fecha-nacimiento > .col-sm {
+    flex: 1;
+    max-width: calc(33.333% - 5.33px);
+  }
+
+  /* Hacer que los títulos no sean gigantes en móvil */
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Ajustar los labels */
+  label.form-label {
+    font-size: 0.9rem;
+  }
+}
+
+
 
